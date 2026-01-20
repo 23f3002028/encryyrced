@@ -1,8 +1,8 @@
-# encryyrced - A Tiny Message Sealing System
+# Encryyrced - A Tiny Message Sealing System
 
 > *“Not all secrets need heavy armor. Some just need to be wrapped carefully.”*
 
-encryyrced is a lightweight Python-based message **encoding + integrity verification** system.  
+Encryyrced is a lightweight Python-based message **encoding + integrity verification** system.  
 It lets you **seal a message**, send it safely, and **verify it hasn’t been tampered with** before reading.
 
 This project is intentionally minimal — designed to demonstrate **encoding, hashing, and HMAC-based integrity checks**, not military-grade encryption.
@@ -10,12 +10,12 @@ This project is intentionally minimal — designed to demonstrate **encoding, ha
 ---
 
 ## What’s Inside
-
+```
 .
 ├── encryption.py # Seals (encodes + signs) a message
 ├── decryption.py # Unseals (verifies + decodes) a message
-└── README.md
-
+└── README.md"
+```
 
 
 ---
@@ -82,52 +82,51 @@ Hello, world!
 If tampered:
 
 Decryption failed: Invalid signature! Message integrity compromised.
+```
 
-What This Project Is (and Isn’t)
+## What This Project Is (and Isn’t)
 
-It IS
+### It **is**
+A clean, minimal demonstration of:
 
-A demonstration of:
+- **Encoding layers** — Hex → Base64
+- **Message authentication** using HMAC
+- **Secure comparison** via `compare_digest`
+- A solid playground for understanding **data integrity concepts**
 
-Encoding layers (Hex + Base64)
+---
 
-Message authentication (HMAC)
+### It **is NOT**
+Let’s be very clear:
 
-Secure comparison (compare_digest)
+- **Strong encryption**
+- A replacement for **AES, RSA, or modern cryptographic systems**
+- Safe if the **secret key is exposed**
 
-Great for learning data integrity concepts
+For real-world security, use well-audited libraries like **`cryptography`**.
 
-It is NOT
+---
 
-Strong encryption
+## Why HMAC?
 
-A replacement for AES / RSA / modern crypto libraries
+HMAC exists to answer two questions:
 
-Safe against key exposure
+- **Integrity** — Was the message altered?
+- **Authenticity** — Did the sender know the secret key?
 
-For real security, look into libraries like cryptography.
+Even **one changed character** is enough to break verification and stop decryption cold.
 
-Why HMAC?
+---
 
-HMAC ensures:
+## Final Notes
 
-Integrity — message wasn’t altered
-
-Authenticity — sender knew the secret key
-
-Even one changed character → verification fails.
-
-Final Notes
-
-This project is small by design.
-Its goal is clarity over complexity, learning over hype.
+This project is **small by design**.  
+Its goal is **clarity over complexity**, **learning over hype**.
 
 Feel free to:
 
-Extend it
-
-Replace encoding with real encryption
-
-Add file or network support
+- Extend it
+- Replace encoding with real encryption
+- Add file or network-based message transfer
 
 Happy hacking 🐙
